@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react"
 import { Playfair_Display, Inter } from 'next/font/google'
 import Image from 'next/image'
 import BuyBox from '../components/BuyBox';
+import StickyCTA from '../components/StickyCTA';
 
 // Add this TypeScript declaration at the top, after imports
 // @ts-ignore
@@ -91,65 +92,73 @@ export default function Page() {
   return (
     <div>
       <div className="bg-gradient-to-r from-pink-50 to-white">
-        <div className="max-w-6xl w-full mx-auto flex flex-col md:flex-row items-center gap-8 px-2 md:px-4 pt-0 md:pt-0 pb-6 md:pb-16">
+        <div className="max-w-6xl w-full mx-auto flex flex-col-reverse md:flex-row items-center gap-6 md:gap-8 px-4 md:px-6 pt-6 md:pt-8 pb-8 md:pb-16">
           {/* Left: Text Content */}
-          <div className="flex-1 max-w-xl">
-            <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4 text-gray-900">
+          <div className="flex-1 max-w-xl order-2 md:order-1">
+            <h1 className="text-2xl md:text-4xl font-bold leading-tight mb-3 md:mb-4 text-gray-900">
               If You're Still Awake at 3AM With <span className="text-pink-600 font-extrabold">RLS</span> — <span className="text-pink-500 italic">Rubbing Your Legs</span>, Watching the Clock, and Wondering Why <span className="text-pink-400 underline">Nothing's Working</span>… I've Been There.
             </h1>
-            <div className="flex items-center gap-2 text-pink-600 font-medium mb-2">
+            <div className="flex items-center gap-2 text-pink-600 font-medium mb-3 md:mb-4">
               <span className="text-lg">❤️</span>
               The First Formula Specifically Created to Calm Restless Legs at the True Source
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
-              <div className="bg-white rounded-2xl shadow p-4 flex items-start gap-3 border border-pink-200">
-                <span className="text-2xl mt-1">🧬</span>
+            
+            {/* Restless Legs Illustration - Moved here on mobile */}
+            <div className="flex md:hidden justify-center mb-4 md:mb-6">
+              <div className="rounded-2xl overflow-hidden shadow-lg bg-white p-2">
+                <Image src="/SC-placeholder.jpg" alt="Woman holding sc product" className="w-[260px] h-[320px] object-cover rounded-xl" width={260} height={320} />
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
+              <div className="bg-white rounded-xl shadow-sm p-3 md:p-4 flex items-start gap-3 border border-pink-100">
+                <span className="text-xl md:text-2xl mt-1">🧬</span>
                 <div>
-                  <div className="font-semibold text-gray-900"> Made Specifically for RLS Sufferers*</div>
-                  <div className="text-gray-500 text-sm">Targets the neurological misfires behind RLS — not just the leg symptoms.</div>
+                  <div className="font-semibold text-gray-900 text-sm md:text-base"> Made Specifically for RLS Sufferers*</div>
+                  <div className="text-gray-500 text-xs md:text-sm">Targets the neurological misfires behind RLS — not just the leg symptoms.</div>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl shadow p-4 flex items-start gap-3 border border-pink-200">
-                <span className="text-2xl mt-1">🧖‍♀️</span>
+              <div className="bg-white rounded-xl shadow-sm p-3 md:p-4 flex items-start gap-3 border border-pink-100">
+                <span className="text-xl md:text-2xl mt-1">🧖‍♀️</span>
                 <div>
-                  <div className="font-semibold text-gray-900">Fewer Nighttime Jolts*</div>
-                  <div className="text-gray-500 text-sm">No more kicking, pacing, or sleepless nights.</div>
+                  <div className="font-semibold text-gray-900 text-sm md:text-base">Fewer Nighttime Jolts*</div>
+                  <div className="text-gray-500 text-xs md:text-sm">No more kicking, pacing, or sleepless nights.</div>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl shadow p-4 flex items-start gap-3 border border-pink-200">
-                <span className="text-2xl mt-1">🌸</span>
+              <div className="bg-white rounded-xl shadow-sm p-3 md:p-4 flex items-start gap-3 border border-pink-100">
+                <span className="text-xl md:text-2xl mt-1">🌸</span>
                 <div>
-                  <div className="font-semibold text-gray-900">Sleep More Peacefully*</div>
-                  <div className="text-gray-500 text-sm">Calmer nerves. More stillness. Better rest</div>
+                  <div className="font-semibold text-gray-900 text-sm md:text-base">Sleep More Peacefully*</div>
+                  <div className="text-gray-500 text-xs md:text-sm">Calmer nerves. More stillness. Better rest</div>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl shadow p-4 flex items-start gap-3 border border-pink-200">
-                <span className="text-2xl mt-1">🌱</span>
+              <div className="bg-white rounded-xl shadow-sm p-3 md:p-4 flex items-start gap-3 border border-pink-100">
+                <span className="text-xl md:text-2xl mt-1">🌱</span>
                 <div>
-                  <div className="font-semibold text-gray-900">Relief from Within*</div>
-                  <div className="text-gray-500 text-sm">Supports brain-body balance so your legs stay still and calm.</div>
+                  <div className="font-semibold text-gray-900 text-sm md:text-base">Relief from Within*</div>
+                  <div className="text-gray-500 text-xs md:text-sm">Supports brain-body balance so your legs stay still and calm.</div>
                 </div>
               </div>
             </div>
-            <div className="bg-pink-50 border border-pink-200 rounded-xl px-4 py-3 mb-4 text-pink-700 font-semibold text-center">
+            <div className="bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl px-4 py-3 mb-4 text-pink-700 font-semibold text-center">
               Feel Like Yourself Again*<br/>
               <span className="text-pink-500 font-normal">More energy. More clarity. More you.</span>
             </div>
-            <div className="text-xs text-gray-400 mb-4">Backed by clinical insights into dopamine, glutamate, and circadian rhythm disruption.</div>
-            <div className="flex justify-center mb-6">
-              <button className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg transition w-full md:w-auto" onClick={() => document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' })}>Start Calming the Chaos From Within</button>
+            <div className="text-xs text-gray-500 mb-4 text-center">Backed by clinical insights into dopamine, glutamate, and circadian rhythm disruption.</div>
+            <div className="flex justify-center mb-4 md:mb-6">
+              <button className="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-bold py-3 px-8 rounded-full text-lg transition w-full md:w-auto shadow-lg transform hover:scale-105" onClick={() => document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' })}>Start Calming the Chaos From Within</button>
             </div>
-            <div className="flex flex-wrap gap-4 text-xs text-gray-500 items-center justify-center md:justify-center mt-2">
-              <div className="flex items-center gap-1"><span className="text-lg">🧬</span> Formulated for RLS</div>
-              <div className="flex items-center gap-1"><span className="text-lg">🔬</span> Neuroscience-Inspired</div>
-              <div className="flex items-center gap-1"><span className="text-lg">🚫</span> Non-Sedating, Drug-Free</div>
-              <div className="flex items-center gap-1"><span className="text-lg">🇺🇸</span> Made in the USA</div>
+            <div className="flex flex-wrap gap-3 md:gap-4 text-xs text-gray-500 items-center justify-center md:justify-center">
+              <div className="flex items-center gap-1 bg-white px-2 py-1 rounded-full shadow-sm"><span className="text-lg">🧬</span> Formulated for RLS</div>
+              <div className="flex items-center gap-1 bg-white px-2 py-1 rounded-full shadow-sm"><span className="text-lg">🔬</span> Neuroscience-Inspired</div>
+              <div className="flex items-center gap-1 bg-white px-2 py-1 rounded-full shadow-sm"><span className="text-lg">🚫</span> Non-Sedating, Drug-Free</div>
+              <div className="flex items-center gap-1 bg-white px-2 py-1 rounded-full shadow-sm"><span className="text-lg">🇺🇸</span> Made in the USA</div>
             </div>
           </div>
-          {/* Right: Image */}
-          <div className="flex-1 flex items-center justify-center">
-            <div className="rounded-2xl overflow-hidden shadow-lg bg-white p-2">
-              <Image src="/SC-placeholder.jpg" alt="Woman holding sc product" className="w-[340px] h-[420px] object-cover rounded-xl" width={340} height={420} />
+          {/* Right: Image - Now appears first on mobile */}
+          <div className="hidden md:flex flex-1 items-center justify-center order-1 md:order-2 mb-6 md:mb-0">
+            <div className="rounded-2xl overflow-hidden shadow-xl bg-white p-3">
+              <Image src="/SC-placeholder.jpg" alt="Woman holding sc product" className="w-[320px] h-[400px] object-cover rounded-xl" width={320} height={400} />
             </div>
           </div>
         </div>
@@ -157,7 +166,7 @@ export default function Page() {
       {/* Reviews Section */}
       <section className="w-full flex justify-center bg-white py-4 md:py-16 px-2 md:px-4">
         <div className="max-w-2xl w-full">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-2">Confidence with SerenityCore</h2>
+                      <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-2">Confidence with Bene</h2>
           <p className="text-center text-gray-600 mb-8">"See how real people with RLS are finally sleeping through the night, quieting their legs, and feeling like themselves again — without sedation, meds, or side effects.</p>
           <div className="flex flex-col gap-4 mb-8">
             {/* Review 1 */}
@@ -173,7 +182,7 @@ export default function Page() {
               <Image src="/profile2.jpg" alt="Marie S." className="w-10 h-10 rounded-full object-cover" width={40} height={40} />
               <div>
                 <div className="font-semibold text-gray-800">Marie S.</div>
-                <div className="text-gray-700 text-sm">Tried every 'hack' I read online — magnesium, socks, leg rubs, even weird old wives' tricks. Nothing touched the restlessness. SerenityCore is the first thing that helped my *nights* feel normal again. Finally.</div>
+                <div className="text-gray-700 text-sm">Tried every 'hack' I read online — magnesium, socks, leg rubs, even weird old wives' tricks. Nothing touched the restlessness. Bene is the first thing that helped my *nights* feel normal again. Finally.</div>
               </div>
             </div>
             {/* Review 3 */}
@@ -197,7 +206,7 @@ export default function Page() {
               <Image src="/profile5.jpg" alt="Shannon R." className="w-10 h-10 rounded-full object-cover" width={40} height={40} />
               <div>
                 <div className="font-semibold text-gray-800">Shannon R.</div>
-                <div className="text-gray-700 text-sm">It wasn't just the leg relief. It was waking up with energy. It was not feeling broken. SerenityCore gave me *me* back. That's what makes it worth it.</div>
+                <div className="text-gray-700 text-sm">It wasn't just the leg relief. It was waking up with energy. It was not feeling broken. Bene gave me *me* back. That's what makes it worth it.</div>
                       </div>
                     </div>
                   </div>
@@ -213,7 +222,7 @@ export default function Page() {
           <div className="flex-1 min-w-0 flex flex-col items-start md:items-start">
             <div className="flex items-center gap-3 mb-2">
               <Image src="/founder-avatar.jpg" alt="Lina founder avatar" className="w-12 h-12 rounded-full object-cover border-2 border-pink-300" width={48} height={48} />
-              <span className="text-lg font-semibold text-pink-700">Hey, I'm Bella — I'm the one who started <span className='text-pink-600 font-bold'>SerenityCore.</span></span>
+              <span className="text-lg font-semibold text-pink-700">Hey, I'm Bella — I'm the one who started <span className='text-pink-600 font-bold'>Bene.</span></span>
                         </div>
             <div className="text-gray-700 mb-4">
             Not because I dreamed of launching a brand, but because I couldn't take another night of feeling like a stranger in my own body.<br/><br/>
@@ -243,7 +252,7 @@ export default function Page() {
                 <span>After<br/>Today</span>
               </div>
               <div className="text-center text-pink-700 font-semibold text-sm">My RLS Transformation</div>
-              <div className="text-center text-gray-500 text-xs">After just 12 weeks using SerenityCore</div>
+              <div className="text-center text-gray-500 text-xs">After just 12 weeks using Bene</div>
                         </div>
                       </div>
                     </div>
@@ -352,7 +361,7 @@ export default function Page() {
             <div className="text-gray-700 mb-4">That's when it hit me — no one had actually put this together. Everything out there felt generic, half-dosed, or completely blind to what RLS really is.</div>
             <div className="text-2xl font-bold text-purple-700 italic mb-2">So I created it myself.</div>
             <div className="text-gray-700 mb-4">I partnered with a clinical formulation lab, spent months obsessing over studies, talking to neuroscientists, refining dosages, and starting over more times than I can count. I didn't want fluff. I wanted something I'd actually take — something that actually worked for RLS.</div>
-            <div className="text-gray-700">SerenityCore wasn't whipped up in my kitchen. It was developed with real experts, third-party tested, made with clean, traceable ingredients — and built on top of decades of sleep, dopamine, and neuro-calming research.</div>
+            <div className="text-gray-700">Bene wasn't whipped up in my kitchen. It was developed with real experts, third-party tested, made with clean, traceable ingredients — and built on top of decades of sleep, dopamine, and neuro-calming research.</div>
           </div>
           {/* Right: Image */}
           <div className="flex-1 flex justify-center items-center">
@@ -360,10 +369,10 @@ export default function Page() {
           </div>
         </div>
       </section>
-      {/* What Makes SerenityCore Different Section */}
-      <section className="w-full flex flex-col items-center bg-white py-4 md:py-16 px-2 md:px-4">
+      {/* What Makes Bene Different Section */}
+      <section className="w-full flex flex-col items-center bg-white py-4 md:py-16 px-2 md:px-4" data-section="bene-different">
         <div className="max-w-4xl w-full">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-purple-900 mb-10">What Makes SerenityCore Different</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-center text-purple-900 mb-10">What Makes Bene Different</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Not built for the masses */}
             <div className="flex items-start gap-3">
@@ -412,13 +421,13 @@ export default function Page() {
       <section className="w-full flex justify-center bg-white py-4 md:py-16 px-2 md:px-4">
         <div className="max-w-5xl w-full flex flex-col md:flex-row gap-10 items-center">
           {/* Left: Product Image and Badges */}
-          <div className="flex-1 flex flex-col items-center md:items-start relative mb-8 md:mb-0 w-full">
-            <div className="w-full text-center mb-4">
+          <div className="flex-1 flex flex-col items-center md:items-start relative mb-4 md:mb-0 w-full">
+            <div className="w-full text-center mb-2">
               <span className="text-2xl align-middle">🔥</span>
               <span className="text-purple-700 font-extrabold text-lg sm:text-xl md:text-2xl align-middle ml-2">Introducing...</span>
             </div>
-            <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center mb-2 mx-auto">
-              <Image src="/bottle-placeholder.png" alt="Product bottle" className="w-full h-auto object-contain rounded-xl" width={320} height={400} />
+            <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center mx-auto">
+              <Image src="/bottle-placeholder-new.png" alt="Product bottle" className="w-full h-auto object-contain rounded-xl" width={640} height={800} />
               <span className="absolute top-3 right-3 bg-pink-200 text-pink-700 text-xs font-bold px-3 py-1 rounded-full shadow">Clinically Tested</span>
             </div>
           </div>
@@ -429,12 +438,12 @@ export default function Page() {
             <div className="text-gray-700 mb-3">Finally — something that actually targets the neurological root of Restless Legs Syndrome.
             Not another sedative. Not another guess. Just ingredients that help your system reset — from the inside out.</div>
             <div className="italic text-gray-600 mb-6">Formulated by real people who've lived through RLS. For those who are still living it.</div>
-            <button
+            <a
+              href="https://benebalance.com/products/bene-rls-supplement"
               className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded-full text-lg transition mb-2 flex items-center justify-center gap-2 shadow text-center"
-              onClick={() => document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' })}
             >
               SUBSCRIBE & SAVE <span>🛒</span>
-            </button>
+            </a>
             <div className="flex gap-6 mt-2">
               <div className="flex items-center gap-2 text-green-600 text-sm"><span>●</span> 60-Day Money Back Guarantee</div>
               <div className="flex items-center gap-2 text-green-600 text-sm"><span>●</span> Free Shipping</div>
@@ -445,7 +454,7 @@ export default function Page() {
       {/* Transformation Experience Section */}
       <section className="w-full flex flex-col items-center bg-white py-4 md:py-16 px-2 md:px-4">
         <div className="max-w-4xl w-full">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-2">Here's What You'll Feel With <span className='text-pink-600'>SerenityCore</span></h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-2">Here's What You'll Feel With <span className='text-pink-600'>Bene</span></h2>
           <div className="text-center text-gray-500 text-sm mb-8">(Not our opinion. Simply the conclusion from 1,000+ clinical studies.)</div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
             {/* Peaceful Showers Again */}
@@ -486,15 +495,23 @@ export default function Page() {
             </div>
           </div>
           <div className="flex justify-center">
-            <button className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg transition shadow" onClick={() => document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' })}>RECLAIM YOUR NIGHTS</button>
+                            <a href="https://benebalance.com/products/bene-rls-supplement" className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg transition shadow">RECLAIM YOUR NIGHTS</a>
             </div>
           </div>
         </section>
-      {/* SerenityCore Transformation Journey Section */}
+      {/* Bene Transformation Journey Section */}
       <section className="w-full flex flex-col items-center bg-pink-50 py-4 md:py-16 px-2 md:px-4">
         <div className="max-w-2xl w-full">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-purple-900 mb-2">Your RLS Transformation Journey</h2>
-          <div className="text-center text-gray-600 mb-10">This isn't instant. But it's real. Here's what starts to shift as your body learns how to rest again.</div>
+          <div className="text-center text-gray-600 mb-6">This isn't instant. But it's real. Here's what starts to shift as your body learns how to rest again.</div>
+          
+          {/* Before and After Image */}
+          <div className="flex justify-center mb-8">
+            <div className="rounded-2xl overflow-hidden shadow-lg bg-white p-3">
+              <Image src="/beforeandaftersleeping.jpg" alt="Before and after sleeping transformation" className="w-full max-w-md h-auto object-cover rounded-xl" width={400} height={300} />
+            </div>
+          </div>
+          
           <div className="flex flex-col gap-8 mb-8">
             {/* Day 1 */}
             <div className="flex gap-4 items-start">
@@ -548,7 +565,7 @@ export default function Page() {
             </div>
           </div>
           <div className="flex justify-center">
-            <button className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg transition shadow" onClick={() => document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' })}>RECLAIM YOUR NIGHTS</button>
+            <a href="https://benebalance.com" className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg transition shadow">RECLAIM YOUR NIGHTS</a>
           </div>
         </div>
       </section>
@@ -595,47 +612,97 @@ export default function Page() {
       {/* Real Women Testimonials Section */}
       <section className="w-full flex flex-col items-center bg-pink-50 py-4 md:py-16 px-2 md:px-4">
         <div className="max-w-5xl w-full">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-purple-900 mb-10">What Real RLS Sufferers Are Saying After Finding SerenityCore</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-center text-purple-900 mb-6">What Real RLS Sufferers Are Saying After Finding Bene</h2>
+          
+          {/* Bene Review Image */}
+          <div className="flex justify-center mb-4 md:mb-6">
+            <div className="rounded-2xl overflow-hidden shadow-lg bg-white p-2 md:p-3 w-full max-w-xs md:max-w-md mx-auto">
+              <Image 
+                src="/BeneReview20.jpg" 
+                alt="Bene product review and testimonial" 
+                className="w-full h-auto object-cover rounded-xl" 
+                width={400} 
+                height={300}
+                priority
+              />
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
             {/* Testimonial 1 */}
-            <div className="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow p-3 md:p-6 gap-4 md:gap-6">
-              <Image src="/profile2.jpg" alt="Layla M." className="w-32 h-32 object-cover rounded-xl mb-4 md:mb-0" width={128} height={128} />
-              <div className="flex-1">
-                <div className="flex gap-1 mb-1">{[...Array(5)].map((_, i) => (<span key={i} className="text-yellow-400 text-lg">★</span>))}</div>
-                <div className="font-bold text-pink-600 mb-1 flex items-center gap-2"><span role="img" aria-label="quote">🗣️</span> "I used to lie awake crying at 2AM… now I sleep through the night without pacing."</div>
-                <div className="font-semibold text-gray-700 mb-1">- Tasha L.</div>
-                <div className="text-gray-600 text-sm">"This is the first thing that actually made a difference. By week three, my legs were finally quiet enough to rest. I don't dread bedtime anymore."</div>
+            <div className="bg-white rounded-2xl shadow p-6 md:p-8">
+              <div className="flex gap-1 mb-4 justify-center">{[...Array(5)].map((_, i) => (<span key={i} className="text-yellow-400 text-xl">★</span>))}</div>
+              <div className="font-bold text-pink-600 mb-3 text-lg md:text-xl leading-tight text-center">
+                "I used to lie awake crying at 2AM… now I sleep through the night without pacing."
+              </div>
+              <div className="font-semibold text-gray-700 mb-6 text-base text-center">
+                - Tasha L.
+              </div>
+              <div className="flex gap-6 items-start">
+                <Image src="/profile2.jpg" alt="Tasha L. profile" className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl flex-shrink-0" width={112} height={112} />
+                <div className="flex-1">
+                  <div className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    "This is the first thing that actually worked. I've tried everything from magnesium to weighted blankets, but nothing calmed my legs like Bene. I'm finally getting restful sleep!"
+                  </div>
+                </div>
               </div>
             </div>
+
             {/* Testimonial 2 */}
-            <div className="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow p-3 md:p-6 gap-4 md:gap-6">
-              <div className="flex-1 order-2 md:order-1">
-                <div className="flex gap-1 mb-1">{[...Array(5)].map((_, i) => (<span key={i} className="text-yellow-400 text-lg">★</span>))}</div>
-                <div className="font-bold text-pink-600 mb-1 flex items-center gap-2"><span role="img" aria-label="quote">🗣️</span> "My partner moved to the guest room. I was embarrassed. Now we sleep next to each other again."</div>
-                <div className="font-semibold text-gray-700 mb-1">- Dena M.</div>
-                <div className="text-gray-600 text-sm">""I didn't even realize how bad it had gotten. I'd wake up ashamed and exhausted. Now I sleep through most nights. My body's still, my mind's quiet. I feel human again."</div>
+            <div className="bg-white rounded-2xl shadow p-6 md:p-8">
+              <div className="flex gap-1 mb-4 justify-center">{[...Array(5)].map((_, i) => (<span key={i} className="text-yellow-400 text-xl">★</span>))}</div>
+              <div className="font-bold text-pink-600 mb-3 text-lg md:text-xl leading-tight text-center">
+                "My partner moved to the guest room. I was embarrassed. Now we sleep next to each other again."
               </div>
-              <Image src="/profile3.jpg" alt="Rina D." className="w-32 h-32 object-cover rounded-xl mb-4 md:mb-0 order-1 md:order-2" width={128} height={128} />
+              <div className="font-semibold text-gray-700 mb-6 text-base text-center">
+                - Dena M.
+              </div>
+              <div className="flex gap-6 items-start">
+                <Image src="/profile3.jpg" alt="Dena M. profile" className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl flex-shrink-0" width={112} height={112} />
+                <div className="flex-1">
+                  <div className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    "I didn't even realize how bad it had gotten. I'd wake up ashamed and exhausted. Now I sleep through most nights. My body's still, my mind's quiet. I feel human again."
+                  </div>
+                </div>
+              </div>
             </div>
+
             {/* Testimonial 3 */}
-            <div className="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow p-3 md:p-6 gap-4 md:gap-6">
-              <Image src="/profile1.jpg" alt="Samira F." className="w-32 h-32 object-cover rounded-xl mb-4 md:mb-0" width={128} height={128} />
-              <div className="flex-1">
-                <div className="flex gap-1 mb-1">{[...Array(5)].map((_, i) => (<span key={i} className="text-yellow-400 text-lg">★</span>))}</div>
-                <div className="font-bold text-pink-600 mb-1 flex items-center gap-2"><span role="img" aria-label="quote">🗣️</span> "I used to try everything — magnesium, socks, hot baths. Nothing worked longer than a week. SerenityCore is different."</div>
-                <div className="font-semibold text-gray-700 mb-1">- Theresa G.</div>
-                <div className="text-gray-600 text-sm">"It's not hype. It's just finally something that works with my body. It took time — but I'm calmer, less wired, and I actually look forward to sleep now."</div>
+            <div className="bg-white rounded-2xl shadow p-6 md:p-8">
+              <div className="flex gap-1 mb-4 justify-center">{[...Array(5)].map((_, i) => (<span key={i} className="text-yellow-400 text-xl">★</span>))}</div>
+              <div className="font-bold text-pink-600 mb-3 text-lg md:text-xl leading-tight text-center">
+                "I used to try everything — magnesium, socks, hot baths. Nothing worked longer than a week. Bene is different."
+              </div>
+              <div className="font-semibold text-gray-700 mb-6 text-base text-center">
+                - Theresa G.
+              </div>
+              <div className="flex gap-6 items-start">
+                <Image src="/profile1.jpg" alt="Theresa G. profile" className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl flex-shrink-0" width={112} height={112} />
+                <div className="flex-1">
+                  <div className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    "It's not hype. It's just finally something that works with my body. It took time — but I'm calmer, less wired, and I actually look forward to sleep now."
+                  </div>
+                </div>
               </div>
             </div>
-            {/* Testimonial 4 (placeholder image) */}
-            <div className="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow p-3 md:p-6 gap-4 md:gap-6">
-              <div className="flex-1 order-2 md:order-1">
-                <div className="flex gap-1 mb-1">{[...Array(5)].map((_, i) => (<span key={i} className="text-yellow-400 text-lg">★</span>))}</div>
-                <div className="font-bold text-pink-600 mb-1 flex items-center gap-2"><span role="img" aria-label="quote">🗣️</span> "I thought this was just my life now — tired, twitchy, ashamed. I was wrong."</div>
-                <div className="font-semibold text-gray-700 mb-1">- Linda T.</div>
-                <div className="text-gray-600 text-sm">"This isn't a magic cure. But my legs don't jolt like they used to. And when I wake up now, I feel like me. That's something I didn't think I'd get back."</div>
+
+            {/* Testimonial 4 */}
+            <div className="bg-white rounded-2xl shadow p-6 md:p-8">
+              <div className="flex gap-1 mb-4 justify-center">{[...Array(5)].map((_, i) => (<span key={i} className="text-yellow-400 text-xl">★</span>))}</div>
+              <div className="font-bold text-pink-600 mb-3 text-lg md:text-xl leading-tight text-center">
+                "I thought this was just my life now — tired, twitchy, ashamed. I was wrong."
               </div>
-              <Image src="/profile4.jpg" alt="Placeholder" className="w-32 h-32 object-cover rounded-xl mb-4 md:mb-0 order-1 md:order-2" width={128} height={128} />
+              <div className="font-semibold text-gray-700 mb-6 text-base text-center">
+                - Linda T.
+              </div>
+              <div className="flex gap-6 items-start">
+                <Image src="/profile4.jpg" alt="Linda T. profile" className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl flex-shrink-0" width={112} height={112} />
+                <div className="flex-1">
+                  <div className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    "This isn't a magic cure. But my legs don't jolt like they used to. And when I wake up now, I feel like me. That's something I didn't think I'd get back."
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -653,17 +720,17 @@ export default function Page() {
             <div className="flex-1 text-white">
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-yellow-300 text-lg">⚠️</span>
-                <span className="font-bold text-lg md:text-xl">June has a high risk of selling out</span>
+                <span className="font-bold text-lg md:text-xl">September has a high risk of selling out</span>
               </div>
               <div className="text-white/90 text-sm md:text-base">RLS-specific ingredients — including hard-to-source botanicals like Bai Shao and Chai Hu — are produced in small, controlled quantities to maintain purity and effectiveness.</div>
             </div>
           </div>
-          <button
+          <a
+            href="https://benebalance.com/products/bene-rls-supplement"
             className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-full text-lg transition mb-2 flex items-center justify-center gap-2 shadow"
-            onClick={() => document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' })}
           >
             UNLOCK YOUR TRUE POWER <span>🛒</span>
-          </button>
+          </a>
           <div className="flex gap-6 mt-2">
             <div className="flex items-center gap-2 text-green-600 text-sm"><span>●</span> 60-Day Money Back</div>
             <div className="flex items-center gap-2 text-green-600 text-sm"><span>●</span> Free Shipping</div>
@@ -804,7 +871,7 @@ export default function Page() {
       {/* Footer */}
       <footer className="w-full bg-white border-t border-gray-200 py-4 md:py-8 mt-8">
         <div className="max-w-4xl mx-auto px-4 text-center text-xs text-gray-500">
-          <div className="mb-2">© {new Date().getFullYear()} getserenitycore.com. All rights reserved.</div>
+          <div className="mb-2">© {new Date().getFullYear()} benebalance.com. All rights reserved.</div>
           <div className="flex justify-center gap-4">
             <a href="#" className="hover:underline">Privacy Policy</a>
             <span>|</span>
@@ -812,6 +879,7 @@ export default function Page() {
           </div>
         </div>
       </footer>
+      <StickyCTA />
     </div>
   )
 }

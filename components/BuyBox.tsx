@@ -2,26 +2,26 @@ import React, { useState } from 'react';
 
 const pricing = {
   subscribe: {
-    1: { price: 37, old: 52, percent: 29 },
-    3: { price: 92, old: 156, percent: 43 },
-    6: { price: 113, old: 315, percent: 64 }
+    1: { price: 39, old: 49, percent: 20 },
+    3: { price: 79, old: 89, percent: 11 },
+    6: { price: 129, old: 159, percent: 19 }
   },
   once: {
-    1: { price: 52, old: 52, percent: 0 },
-    3: { price: 113, old: 156, percent: 29 },
-    6: { price: 165, old: 315, percent: 47 }
+    1: { price: 49, old: 49, percent: 0 },
+    3: { price: 89, old: 89, percent: 0 },
+    6: { price: 159, old: 159, percent: 0 }
   }
 };
 const checkoutLinks = {
   subscribe: {
-    1: 'https://h515q5-yu.myshopify.com/a/subscriptions/checkout/51874030747923:1:691307708691',
-    3: 'https://h515q5-yu.myshopify.com/a/subscriptions/checkout/51874031141139:1:691307741459',
-    6: 'https://h515q5-yu.myshopify.com/a/subscriptions/checkout/51874034483475:1:691307774227'
+    1: 'https://benebalance.com/products/bene-rls-supplement',
+    3: 'https://benebalance.com/products/bene-rls-supplement',
+    6: 'https://benebalance.com/products/bene-rls-supplement'
   },
   once: {
-    1: 'https://bio-gums.com/cart/10017704608019:1',
-    3: 'https://bio-gums.com/cart/51874031141139:1',
-    6: 'https://bio-gums.com/cart/51874034483475:1'
+    1: 'https://benebalance.com/products/bene-rls-supplement',
+    3: 'https://benebalance.com/products/bene-rls-supplement',
+    6: 'https://benebalance.com/products/bene-rls-supplement'
   }
 };
 
@@ -31,16 +31,7 @@ const BuyBox = () => {
   const priceData = pricing[mode][bottles as 1 | 3 | 6];
   const showSavings = priceData.percent > 0;
 
-  const handleAddToCart = () => {
-    if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('track', 'AddToCart', {
-        value: priceData.price,
-        currency: 'GBP',
-        contents: [{ id: `${mode}-${bottles}`, quantity: 1 }],
-        content_type: 'product',
-      });
-    }
-  };
+
 
   return (
     <section id="pricing-section" className="w-full flex flex-col items-center bg-white py-8 md:py-16 px-2 md:px-4">
@@ -48,10 +39,20 @@ const BuyBox = () => {
         <div className="px-6 md:px-12 pt-8 pb-4 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-pink-700 mb-2">Natural Formula for RLS Sufferers</h2>
           <div className="text-lg text-pink-500 mb-4 font-semibold">Limited Time Offer</div>
-          {/* Product Image */}
-          <div className="flex justify-center mb-6">
-            <img src="/bottle-placeholder.jpg" alt="Product bottle" className="w-32 h-40 md:w-40 md:h-52 object-contain rounded-xl shadow-lg border-4 border-pink-100 bg-white" width={128} height={160} />
+          
+          {/* Product Image - Moved to top */}
+          <div className="flex justify-center items-center mb-2 w-full">
+            <div className="w-64 h-80 md:w-80 md:h-96 lg:w-96 lg:h-[28rem] bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl shadow-lg flex items-center justify-center mx-auto">
+              <img 
+                src="/bottle-placeholder.jpg" 
+                alt="Product bottle" 
+                className="w-5/6 h-5/6 object-contain drop-shadow-lg" 
+                width={384} 
+                height={448} 
+              />
+            </div>
           </div>
+          
           {/* Toggle */}
           <div className="flex flex-col items-center mb-2">
             <div className="flex items-center gap-2 rounded-full p-1 border-2 border-pink-300 bg-white">
@@ -75,19 +76,19 @@ const BuyBox = () => {
               <ul id="benefitsList" className="border-2 border-pink-200 bg-white rounded-xl px-6 py-4 grid grid-cols-1 gap-2 text-base font-medium shadow">
                 <li className={`flex items-center justify-between gap-2 ${mode === 'once' ? 'line-through text-gray-400 opacity-60' : ''}`} data-benefit="discount">
                   <span className={`flex items-center gap-2 ${mode === 'once' ? 'text-gray-400' : 'text-green-600 font-bold'}`}>✔ 30% off for life</span>
-                  <span className="line-through text-pink-400">£16</span>
+                  <span className="line-through text-pink-400">$16</span>
                 </li>
                 <li className={`flex items-center justify-between gap-2 ${mode === 'once' ? 'line-through text-gray-400 opacity-60' : ''}`} data-benefit="tracker">
                   <span className={`flex items-center gap-2 ${mode === 'once' ? 'text-gray-400' : 'text-pink-600'}`}>🎁 <span className="font-bold">FREE</span> Sleep Recovery Tracker</span>
-                  <span className="line-through text-pink-400">£14</span>
+                  <span className="line-through text-pink-400">$14</span>
                 </li>
                 <li className={`flex items-center justify-between gap-2 ${mode === 'once' ? 'line-through text-gray-400 opacity-60' : ''}`} data-benefit="audio">
                   <span className={`flex items-center gap-2 ${mode === 'once' ? 'text-gray-400' : 'text-pink-600'}`}>🎧 <span className="font-bold">FREE</span> RLS Relief Audio Guide</span>
-                  <span className="line-through text-pink-400">£17</span>
+                  <span className="line-through text-pink-400">$17</span>
                 </li>
                 <li className={`flex items-center justify-between gap-2 ${mode === 'once' ? 'line-through text-gray-400 opacity-60' : ''}`} data-benefit="shipping">
                   <span className={`flex items-center gap-2 ${mode === 'once' ? 'text-gray-400' : 'text-pink-600'}`}>🚚 <span className="font-bold">FREE</span> Priority Shipping</span>
-                  <span className="line-through text-pink-400">£7</span>
+                  <span className="line-through text-pink-400">$7</span>
                 </li>
                 <li className={`flex items-center gap-2 ${mode === 'once' ? 'line-through text-gray-400 opacity-60' : ''}`} data-benefit="vip">
                   <span className={`flex items-center gap-2 ${mode === 'once' ? 'text-gray-400' : 'text-green-600 font-bold'}`}>✔ VIP Access to New Wellness Tools</span>
@@ -115,7 +116,7 @@ const BuyBox = () => {
                 <div className="font-bold text-lg">{n} Bottle{n > 1 ? 's' : ''}</div>
                 <div className="mb-2">{n * 30} day supply</div>
                 <div className="text-2xl font-extrabold mb-1 break-words md:text-2xl text-xl">
-                  <span className="line-through text-gray-400 text-lg mr-1">£{pricing[mode][n as 1 | 3 | 6].old}</span> <span id={`price${n}`}>£{pricing[mode][n as 1 | 3 | 6].price}</span>
+                  <span className="line-through text-gray-400 text-lg mr-1">${pricing[mode][n as 1 | 3 | 6].old}</span> <span id={`price${n}`}>${pricing[mode][n as 1 | 3 | 6].price}</span>
                 </div>
                 <div className="text-xs">Per {n > 1 ? 'Pack' : 'Bottle'}</div>
               </div>
@@ -132,9 +133,8 @@ const BuyBox = () => {
             id="addToCartBtn"
             className="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 rounded-full text-xl transition flex items-center justify-center gap-2 shadow-lg mt-2 mb-2"
             href={checkoutLinks[mode][bottles as 1 | 3 | 6]}
-            onClick={handleAddToCart}
           >
-            ADD TO CART - <span id="cartPrice">£{priceData.price}</span>
+            ADD TO CART - <span id="cartPrice">${priceData.price}</span>
           </a>
         </div>
       </div>
