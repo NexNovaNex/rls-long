@@ -640,11 +640,11 @@ export default function Page() {
               </div>
               <div className="flex gap-6 items-start">
                 <Image src="/profile2.jpg" alt="Tasha L. profile" className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl flex-shrink-0" width={112} height={112} />
-                <div className="flex-1">
+              <div className="flex-1">
                   <div className="text-gray-600 text-sm md:text-base leading-relaxed">
                     "This is the first thing that actually worked. I've tried everything from magnesium to weighted blankets, but nothing calmed my legs like Bene. I'm finally getting restful sleep!"
-                  </div>
-                </div>
+              </div>
+            </div>
               </div>
             </div>
 
@@ -656,7 +656,7 @@ export default function Page() {
               </div>
               <div className="font-semibold text-gray-700 mb-6 text-base text-center">
                 - Dena M.
-              </div>
+            </div>
               <div className="flex gap-6 items-start">
                 <Image src="/profile3.jpg" alt="Dena M. profile" className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl flex-shrink-0" width={112} height={112} />
                 <div className="flex-1">
@@ -678,11 +678,11 @@ export default function Page() {
               </div>
               <div className="flex gap-6 items-start">
                 <Image src="/profile1.jpg" alt="Theresa G. profile" className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl flex-shrink-0" width={112} height={112} />
-                <div className="flex-1">
+              <div className="flex-1">
                   <div className="text-gray-600 text-sm md:text-base leading-relaxed">
                     "It's not hype. It's just finally something that works with my body. It took time — but I'm calmer, less wired, and I actually look forward to sleep now."
-                  </div>
-                </div>
+              </div>
+            </div>
               </div>
             </div>
 

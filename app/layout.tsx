@@ -82,6 +82,21 @@ export default function RootLayout({
           `}
         </Script>
         {/* End Facebook Pixel */}
+        
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MSWK0NCD8D"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-MSWK0NCD8D');
+          `}
+        </Script>
+        {/* End Google Analytics */}
       </head>
       <body className={`${inter.className} bg-black bg-dotted-grid`}>
         {/* Facebook Pixel NoScript Fallback */}
